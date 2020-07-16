@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
+import {HttpHeaders} from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +11,12 @@ export class AuthenticationService {
   constructor(private http: HttpClient) { }
 
   loginUser(username: string, password: string) {
-    return this.http.post<any>(this._loginUrl, {username, password})
+    const httOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': 'Basic ' + btoa(username + ':' + password)
+      })
+    };
+    return this.http.get<any>(this._loginUrl, httOptions);
   }
 }

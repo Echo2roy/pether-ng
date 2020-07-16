@@ -25,7 +25,7 @@ export class LoginPageComponent implements OnInit {
     this._auth.loginUser(this.username, this.password)
       .subscribe(
         res => console.log(res),
-        err => console.log(err)
+        error => console.error("There was an error: ", error)
       )
   }
 }
