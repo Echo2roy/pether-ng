@@ -1,0 +1,8 @@
+.navbar-nav {
+  flex-direction: row;
+}
+.navbar-brand{
+  font-size: 20px;
+  font-weight: bold;
+  text-decoration-color: rgba(26, 26, 26, 0.95);
+}

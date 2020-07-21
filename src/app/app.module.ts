@@ -8,12 +8,16 @@ import { HomePageComponent } from './components/home-page/home-page.component';
 import { LoginPageComponent } from './components/login-page/login-page.component';
 import {AuthenticationService} from "./services/authentication.service";
 import {FormsModule} from "@angular/forms";
+import { SidebarComponent } from './components/layouts/sidebar/sidebar.component';
+import { HeaderComponent } from './components/layouts/header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomePageComponent,
-    LoginPageComponent
+    LoginPageComponent,
+    SidebarComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

@@ -19,4 +19,16 @@ export class AuthenticationService {
     };
     return this.http.get<any>(this._loginUrl, httOptions);
   }
+
+  logout(): Promise<any> {
+    let url = this._loginUrl;
+
+    let params = new FormData();
+
+    params.set("op", "logout");
+    params.set("user", JSON.parse(localStorage.getItem("currentUser")).appId);
+    params.set("remoteHost", JSON.parse(localStorage.getItem("currentUser")).remoteHost);
+
+    return;
+  }
 }

@@ -1,0 +1,105 @@
+<p>sidebar works!</p>
+
+<nav
+  class="sidebar"
+  [ngClass]="{ sidebarPushRight: isActive, collapsed: collapsed }"
+>
+  <div class="list-group">
+    <!-- <a *ngIf="core.userHasPermission('VIEWGUIDASH')" -->
+    <a
+      routerLink="/home"
+      [routerLinkActive]="['router-link-active']"
+      class="list-group-item"
+    >
+      <i class="fa fa-home"></i>
+      <span>"Home"</span>
+    </a>
+
+    <div class="nested-menu">
+      <a class="list-group-item" (click)="addExpandClass('settings')">
+        <i class="fa fa-file-text icon-size"></i>
+        <span>"Settings"</span>
+      </a>
+      <li class="nested" [class.expand]="showMenu === 'settings'">
+        <ul class="submenu">
+          <!-- <li>
+            <a
+              [routerLink]="['/myaccount']"
+              [routerLinkActive]="['router-link-active']"
+              class="list-group-item"
+            >
+              <i class="fa fa-user"></i>
+              <span>{{ "nav.myAccount" | translate }}</span>
+            </a>
+          </li> -->
+          <li>
+            <a
+              [routerLink]="['/access']"
+              [routerLinkActive]="['router-link-active']"
+              class="list-group-item"
+            >
+              <i class="fa fa-user-secret"></i>
+              <span>"Access control"</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+    </div>
+
+    <div class="header-fields">
+      <!-- <a (click)="rltAndLtr()" class="list-group-item">
+                <span><i class="fa fa-arrows-h"></i>&nbsp; RTL/LTR</span>
+            </a> -->
+      <div class="nested-menu">
+        <a class="list-group-item" (click)="addExpandClass('languages')">
+          <span
+          ><i class="fa fa-language"></i>&nbsp;"Language"
+            <b class="caret"></b
+            ></span>
+        </a>
+        <li class="nested" [class.expand]="showMenu === 'languages'">
+          <ul class="submenu">
+            <li>
+              <a href="javascript:void(0)" (click)="changeLang('en')">
+                "English"
+              </a>
+            </li>
+            <li>
+              <a href="javascript:void(0)" (click)="changeLang('fr')">
+                "French"
+              </a>
+            </li>
+          </ul>
+        </li>
+      </div>
+      <div class="nested-menu">
+        <a class="list-group-item" (click)="addExpandClass('profile')">
+          <span><i class="fa fa-user"></i>surname</span>
+        </a>
+        <li class="nested" [class.expand]="showMenu === 'profile'">
+          <ul class="submenu">
+            <li>
+              <a href="javascript:void(0);" (click)="onLogout()">
+                <span
+                ><i class="fa fa-fw fa-power-off"></i>
+                  "Log Out"</span
+                >
+              </a>
+            </li>
+          </ul>
+        </li>
+      </div>
+    </div>
+  </div>
+  <div
+    class="toggle-button"
+    [ngClass]="{ collapsed: collapsed }"
+    (click)="toggleCollapsed()"
+  >
+    <i class="fa fa-fw fa-angle-double-{{ collapsed ? 'right' : 'left' }}"></i
+    >&nbsp;
+    <span>"Collapse sidebar</span>
+  </div>
+</nav>
+
+
