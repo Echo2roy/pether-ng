@@ -7,10 +7,13 @@ import {HeaderComponent} from "./components/layouts/header/header.component";
 
 
 const routes: Routes = [
-  {path: '', component: HeaderComponent},
+  {path: '', component: SidebarComponent},
+  {path: '', component: LoginPageComponent},
   {path: 'home', component: HomePageComponent},
   {path: 'sidebar', component: SidebarComponent},
-  {path: 'header', component: HeaderComponent}
+  {path: 'header', component: HeaderComponent},
+//  { path: "404", component: PageNotFoundComponent },
+  { path: '**', redirectTo: '404' }
 ];
 
 @NgModule({
